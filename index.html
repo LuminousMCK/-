@@ -13,6 +13,7 @@
             overflow: hidden;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
         }
 
         .flex-container {
@@ -42,6 +43,12 @@
 
         button {
             transition: background-color 0.3s, transform 0.3s;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 18px;
         }
 
         button:hover {
@@ -53,16 +60,29 @@
         button:active {
             transform: scale(0.95);
         }
+
+        @media (max-width: 600px) {
+            button {
+                width: 80%;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="flex-container" id="myButton">
-        <button class="bg-blue-400 w-[240px] h-[50px] flex items-center justify-center" onclick="playVideo()">
+        <button class="flex items-center justify-center" onclick="playVideo()">
             CLICK HERE
         </button>
     </div>
-    <video data-aos="fade-up" autoplay loop id="myVideo" class="w-max h-max" style="display: none;">
+    <video data-aos="fade-up" autoplay muted loop id="myVideo" style="display: none;" playsinline>
         <source src="./videos/vis.mp4" type="video/mp4">
     </video>
 
