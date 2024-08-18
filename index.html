@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .scrollable-content {
+            overflow: auto;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff00dd;
+            animation: pulse 0.6s infinite;
+            box-shadow: 0 12px 24px rgba(255, 0, 0, 0.5), 5px 4px 50px rgba(0, 255, 149, 0.3), 10px 9px 20px rgba(0, 170, 255, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container" id="myButton">
+        <button class="bg-blue-400 w-[240px] h-[50px] flex items-center justify-center" onclick="playVideo()">
+            CLICK HERE
+        </button>
+    </div>
+    <video data-aos="fade-up" autoplay loop id="myVideo" class="w-max h-max" style="display: none;">
+        <source src="./videos/vis.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        function playVideo() {
+            var video = document.getElementById('myVideo');
+            var button = document.getElementById('myButton');
+            video.style.display = 'block';
+            video.play();
+            button.style.display = 'none';
+        }
+    </script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
